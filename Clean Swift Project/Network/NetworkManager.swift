@@ -35,16 +35,16 @@ class NetworkManager {
         dataTask.resume()
     }
     
-    func getCommentsForPost(withPostId postId:String, completionHandler: @escaping ([Comment]) -> Void ) {
+    func getCommentsForPost(withPostId postId:String, completionHandler: @escaping ([CommentModel]) -> Void ) {
         
         let url = URL(string: baseURL + "/posts/" + postId + "/comments")!
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            let arrayComments = [Comment]()
+            let arrayComments = [CommentModel]()
             if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let decodedComments = try decoder.decode([Comment].self, from: data)
+                    let decodedComments = try decoder.decode([CommentModel].self, from: data)
                     completionHandler(decodedComments)
                 } catch {
                     completionHandler(arrayComments)
