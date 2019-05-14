@@ -20,7 +20,7 @@ protocol PostDisplayLogic: class {
 class PostViewController: UIViewController, PostDisplayLogic {
     
     var interactor: PostBusinessLogic?
-    var router: (NSObjectProtocol & PostRoutingLogic & PostDataPassing)?
+    var router: (NSObjectProtocol & PostRoutingLogic &  PostDataPassing)?
     let postView = CommonTableView()
     var arrForPost = [PostModel]()
     
@@ -90,7 +90,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     }
     
     func displayComments(viewModel: Post.Comments.ViewModel) {
-        
+        router?.routeToComments()
     }
     
 }
