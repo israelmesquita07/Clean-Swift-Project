@@ -19,13 +19,15 @@ class NetworkManager {
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let arrayPosts = [PostModel]()
-            if let data = data {
-                let decoder = JSONDecoder()
-                do {
-                    let decodedPosts = try decoder.decode([PostModel].self, from: data)
-                    completionHandler(decodedPosts)
-                } catch {
-                    completionHandler(arrayPosts)
+            DispatchQueue.main.async {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedPosts = try decoder.decode([PostModel].self, from: data)
+                        completionHandler(decodedPosts)
+                    } catch {
+                        completionHandler(arrayPosts)
+                    }
                 }
             }
         }

@@ -13,7 +13,7 @@
 import UIKit
 
 protocol PostBusinessLogic{
-    func doSomething(request: Post.Something.Request)
+    func loadData(request: Post.Load.Request)
 }
 
 protocol PostDataStore{
@@ -28,12 +28,13 @@ class PostInteractor: PostBusinessLogic, PostDataStore{
     
     // MARK: Do something
     
-    func doSomething(request: Post.Something.Request)
+    func loadData(request: Post.Load.Request)
     {
         worker = PostWorker()
-        worker?.doSomeWork()
+        worker?.fetchData(completionHandler: { (posts) in
+            let response = Post.Load.Response(posts: posts)
+            self.presenter?.presentPosts(response: response)
+        })
         
-        let response = Post.Something.Response()
-        presenter?.presentSomething(response: response)
     }
 }

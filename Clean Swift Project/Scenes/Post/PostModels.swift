@@ -15,15 +15,15 @@ import UIKit
 enum Post {
     // MARK: Use cases
     
-    enum Something {
+    enum Load {
         struct Request {
         
         }
         struct Response {
-            
+            let posts: [PostModel]
         }
         struct ViewModel {
-            
+            let posts: [PostModel]
         }
     }
 }

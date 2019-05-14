@@ -13,7 +13,7 @@
 import UIKit
 
 protocol PostDisplayLogic: class {
-    func displaySomething(viewModel: Post.Something.ViewModel)
+    func displayPosts(viewModel: Post.Load.ViewModel)
 }
 
 class PostViewController: UIViewController, PostDisplayLogic {
@@ -69,24 +69,23 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        doSomething()
         postView.tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseIdentifier)
         postView.tableView.dataSource = self
         postView.tableView.delegate = self
         self.title = "Posts"
+        loadPosts()
     }
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething(){
-        let request = Post.Something.Request()
-        interactor?.doSomething(request: request)
+    func loadPosts(){
+        let request = Post.Load.Request()
+        interactor?.loadData(request: request)
     }
     
-    func displaySomething(viewModel: Post.Something.ViewModel){
-        //nameTextField.text = viewModel.name
+    func displayPosts(viewModel: Post.Load.ViewModel){
+        arrForPost = viewModel.posts
+        postView.tableView.reloadData()
     }
 }
 

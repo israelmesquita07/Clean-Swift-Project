@@ -13,7 +13,11 @@
 import UIKit
 
 class PostWorker{
-    func doSomeWork(){
-        
+    
+    
+    func fetchData(completionHandler: @escaping(([PostModel]) -> Void)){
+        NetworkManager.shared.getPosts { (posts) in
+            completionHandler(posts)
+        }
     }
 }
