@@ -27,14 +27,14 @@ class CommentInteractor: CommentBusinessLogic, CommentDataStore
   var worker: CommentWorker?
   var postId: Int = 0
   
-  // MARK: Do something
+  // MARK: Do LoadComments
   
   func doLoadComments(request: Comment.Load.Request)
   {
-    worker = CommentWorker()
-    worker?.fetchData(postId: postId, completionHandler: { (comments) in
+    worker = CommentWorker() //instancia o worker
+    worker?.fetchData(postId: postId, completionHandler: { (comments) in //chama o método pra carregar os comentários
         let response = Comment.Load.Response(comment: comments)
-        self.presenter?.presentSomething(response: response)
+        self.presenter?.presentSomething(response: response) //envia a resposta pro presenter
     })
     
   }

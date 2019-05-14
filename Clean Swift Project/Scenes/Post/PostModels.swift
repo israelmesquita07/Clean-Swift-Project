@@ -33,10 +33,8 @@ enum Post {
             let post:PostModel
         }
         struct Response{
-//            let comment: [CommentModel]
         }
         struct ViewModel{
-//            let comment: [CommentModel]
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkManager {
     static let shared = NetworkManager()
-    private let baseURL = "https://jsonplaceholder.typicode.com"
+    private let baseURL = "https://jsonplaceholder.typicode.com" // API livre, não estamos usando Alamofire
     private init() {}
     
     func getPosts(completionHandler: @escaping ([PostModel]) -> Void ) {
@@ -41,13 +41,15 @@ class NetworkManager {
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let arrayComments = [CommentModel]()
-            if let data = data {
-                let decoder = JSONDecoder()
-                do {
-                    let decodedComments = try decoder.decode([CommentModel].self, from: data)
-                    completionHandler(decodedComments)
-                } catch {
-                    completionHandler(arrayComments)
+            DispatchQueue.main.async {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedComments = try decoder.decode([CommentModel].self, from: data)
+                        completionHandler(decodedComments)
+                    } catch {
+                        completionHandler(arrayComments)
+                    }
                 }
             }
         }

@@ -18,8 +18,7 @@ enum Comment
   
   enum Load
   {
-    struct Request
-    {
+    struct Request{
     }
     struct Response{
         let comment: [CommentModel]

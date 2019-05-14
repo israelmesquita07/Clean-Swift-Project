@@ -38,7 +38,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     // MARK: Setup
     
-    private func setup() {
+    private func setup() { //define as dependências entre os módulos
         let viewController = self
         let interactor = PostInteractor()
         let presenter = PostPresenter()
@@ -53,7 +53,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     // MARK: Routing
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){ //não usado, pois não usamos StoryBoard nesse exemplo
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
             if let router = router, router.responds(to: selector) {
@@ -65,7 +65,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     // MARK: View lifecycle
     
     override func loadView() {
-        view = postView
+        view = postView // define quem é a view Principal
     }
     
     override func viewDidLoad(){
@@ -77,20 +77,20 @@ class PostViewController: UIViewController, PostDisplayLogic {
         loadPosts()
     }
     
-    // MARK: Do something
+    // MARK: loadPosts
     
     func loadPosts(){
-        let request = Post.Load.Request()
+        let request = Post.Load.Request() //cria um request para chamar os posts pelo interactor
         interactor?.doLoadData(request: request)
     }
     
     func displayPosts(viewModel: Post.Load.ViewModel){
-        arrForPost = viewModel.posts
+        arrForPost = viewModel.posts //recebe os posts do Presenter(VM) e recarrega a tableView
         postView.tableView.reloadData()
     }
     
     func displayComments(viewModel: Post.Comments.ViewModel) {
-        router?.routeToComments()
+        router?.routeToComments() //chama o destino pelas rotas ao clicar em alguma cell da tableView - mostra deltalhes
     }
     
 }
@@ -126,6 +126,5 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate {
         let request = Post.Comments.Request(post: post)
         interactor?.doLoadComments(request: request)
     }
-    
     
 }

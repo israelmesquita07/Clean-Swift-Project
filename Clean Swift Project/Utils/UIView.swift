@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+extension UIView { //Reutilização de código
     func addSubViewForAutoLayout(_ subView:UIView){
         subView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subView)

@@ -25,7 +25,7 @@ class CommentPresenter: CommentPresentationLogic
   
   func presentSomething(response: Comment.Load.Response)
   {
-    let viewModel = Comment.Load.ViewModel(comment: response.comment)
-    viewController?.displayComments(viewModel: viewModel)
+    let viewModel = Comment.Load.ViewModel(comment: response.comment) //prega a resposta do interactor
+    viewController?.displayComments(viewModel: viewModel) //envia pra VC pra que seja exibidos os comentários
   }
 }

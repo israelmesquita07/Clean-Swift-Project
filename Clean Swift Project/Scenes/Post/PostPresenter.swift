@@ -21,8 +21,8 @@ class PostPresenter: PostPresentationLogic {
     weak var viewController: PostDisplayLogic?
     
     func presentPosts(response: Post.Load.Response) {
-        let viewModel = Post.Load.ViewModel(posts: response.posts)
-        viewController?.displayPosts(viewModel: viewModel)
+        let viewModel = Post.Load.ViewModel(posts: response.posts) //pega o retorno do interactor
+        viewController?.displayPosts(viewModel: viewModel) // e manda pra view para exibir
     }
     
     func presentComments(response: Post.Comments.Response) {

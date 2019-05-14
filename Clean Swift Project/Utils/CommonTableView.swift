@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommonTableView: UIView {
+class CommonTableView: UIView { //tabela Common criada para não precisar repetir código, já que não estamos usando StoryBoards
     
     let tableView: UITableView
     

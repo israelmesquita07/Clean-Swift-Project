@@ -27,10 +27,10 @@ class PostRouter: NSObject, PostRoutingLogic, PostDataPassing {
     
     // MARK: Routing
     func routeToComments() {
-        let destinationVC = CommentViewController()
-        var destDataStore = destinationVC.router?.dataStore
-        passDataToComments(source: dataStore!, destination: &destDataStore!)
-        navigateToComments(source: viewController!, destination: destinationVC)
+        let destinationVC = CommentViewController() //define o destino
+        var destDataStore = destinationVC.router?.dataStore //define o dataStore (os dados que vao ser passados) do destino
+        passDataToComments(source: dataStore!, destination: &destDataStore!) //passa os dados pro destino
+        navigateToComments(source: viewController!, destination: destinationVC) // navega até o destino
     }
     
     // MARK: Passing data

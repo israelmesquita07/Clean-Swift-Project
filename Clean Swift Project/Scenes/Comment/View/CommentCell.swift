@@ -44,7 +44,7 @@ class CommentCell: UITableViewCell {
         lblDescription.numberOfLines = 0
         lblEmail.textColor = .gray
         
-        lblTitle.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .vertical)
+        lblTitle.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .vertical) //Prioridade de layout
         lblEmail.setContentHuggingPriority(UILayoutPriority(rawValue: 999), for: .vertical)
         lblDescription.setContentHuggingPriority(UILayoutPriority(rawValue: 998), for: .vertical)
         
@@ -54,7 +54,8 @@ class CommentCell: UITableViewCell {
     }
     
     func setupFonts(){
-        lblTitle.font = UIFont.systemFont(ofSize: ViewTraits.titleFontSize, weight: .bold)
+        
+        lblTitle.font = UIFont.systemFont(ofSize: ViewTraits.titleFontSize, weight: .bold) //Tamanho e estilo de fonte
         lblEmail.font = UIFont.systemFont(ofSize: ViewTraits.emailFontSize, weight: .thin)
         lblDescription.font = UIFont.systemFont(ofSize: ViewTraits.descriptionFontSize, weight: .light)
     }

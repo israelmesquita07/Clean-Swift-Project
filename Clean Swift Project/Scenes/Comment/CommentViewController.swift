@@ -38,7 +38,7 @@ class CommentViewController: UIViewController, CommentDisplayLogic{
     
     // MARK: Setup
     
-    private func setup()
+    private func setup() //define as dependências entre os módulos
     {
         let viewController = self
         let interactor = CommentInteractor()
@@ -54,7 +54,7 @@ class CommentViewController: UIViewController, CommentDisplayLogic{
     
     // MARK: Routing
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) //não usado, pois não usamos StoryBoard nesse exemplo
     {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -67,7 +67,7 @@ class CommentViewController: UIViewController, CommentDisplayLogic{
     // MARK: View lifecycle
     
     override func loadView() {
-        view = commentView
+        view = commentView // define quem é a view Principal
     }
     
     override func viewDidLoad()
@@ -81,17 +81,15 @@ class CommentViewController: UIViewController, CommentDisplayLogic{
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
     func loadComments()
     {
         let request = Comment.Load.Request()
-        interactor?.doLoadComments(request: request)
+        interactor?.doLoadComments(request: request) //cria um request para chamar os comentários pelo interactor
     }
     
     func displayComments(viewModel: Comment.Load.ViewModel)
     {
-        arrForComments = viewModel.comment
+        arrForComments = viewModel.comment //recebe os comentários do Presenter(VM) e recarrega a tableView
         commentView.tableView.reloadData()
     }
 }
