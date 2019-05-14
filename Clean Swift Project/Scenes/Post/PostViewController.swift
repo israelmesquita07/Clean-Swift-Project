@@ -21,6 +21,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     var interactor: PostBusinessLogic?
     var router: (NSObjectProtocol & PostRoutingLogic & PostDataPassing)?
     let postView = PostView()
+    var arrForPost = [PostModel]()
     
     // MARK: Object lifecycle
     
@@ -69,6 +70,9 @@ class PostViewController: UIViewController, PostDisplayLogic {
     override func viewDidLoad(){
         super.viewDidLoad()
         doSomething()
+        postView.tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseIdentifier)
+        postView.tableView.dataSource = self
+        postView.tableView.delegate = self
         self.title = "Posts"
     }
     
@@ -84,4 +88,33 @@ class PostViewController: UIViewController, PostDisplayLogic {
     func displaySomething(viewModel: Post.Something.ViewModel){
         //nameTextField.text = viewModel.name
     }
+}
+
+extension PostViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrForPost.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier, for: indexPath) as? PostCell {
+            
+            let post = arrForPost[indexPath.row]
+            cell.lblTitle.text = post.title
+            cell.lblDescription.text  = post.body
+            
+            return cell
+        }
+        
+        
+        
+        
+        return UITableViewCell()
+    }
+    
 }

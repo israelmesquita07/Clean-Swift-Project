@@ -12,6 +12,7 @@ class PostCell: UITableViewCell {
     
     let lblTitle: UILabel
     let lblDescription: UILabel
+    static let reuseIdentifier = "PostCell"
     
     private struct ViewTraits {
         static let margins: CGFloat = 16.0
