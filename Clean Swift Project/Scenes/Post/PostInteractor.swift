@@ -12,30 +12,28 @@
 
 import UIKit
 
-protocol PostBusinessLogic
-{
-  func doSomething(request: Post.Something.Request)
+protocol PostBusinessLogic{
+    func doSomething(request: Post.Something.Request)
 }
 
-protocol PostDataStore
-{
-  //var name: String { get set }
+protocol PostDataStore{
+    //var name: String { get set }
 }
 
-class PostInteractor: PostBusinessLogic, PostDataStore
-{
-  var presenter: PostPresentationLogic?
-  var worker: PostWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Post.Something.Request)
-  {
-    worker = PostWorker()
-    worker?.doSomeWork()
+class PostInteractor: PostBusinessLogic, PostDataStore{
     
-    let response = Post.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: PostPresentationLogic?
+    var worker: PostWorker?
+    //var name: String = ""
+    
+    // MARK: Do something
+    
+    func doSomething(request: Post.Something.Request)
+    {
+        worker = PostWorker()
+        worker?.doSomeWork()
+        
+        let response = Post.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

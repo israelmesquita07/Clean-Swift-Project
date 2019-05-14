@@ -12,20 +12,17 @@
 
 import UIKit
 
-protocol PostPresentationLogic
-{
-  func presentSomething(response: Post.Something.Response)
+protocol PostPresentationLogic {
+    func presentSomething(response: Post.Something.Response)
 }
 
-class PostPresenter: PostPresentationLogic
-{
-  weak var viewController: PostDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Post.Something.Response)
-  {
-    let viewModel = Post.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class PostPresenter: PostPresentationLogic {
+    weak var viewController: PostDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentSomething(response: Post.Something.Response) {
+        let viewModel = Post.Something.ViewModel()
+        viewController?.displaySomething(viewModel: viewModel)
+    }
 }

@@ -12,20 +12,18 @@
 
 import UIKit
 
-enum Post
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum Post {
+    // MARK: Use cases
+    
+    enum Something {
+        struct Request {
+        
+        }
+        struct Response {
+            
+        }
+        struct ViewModel {
+            
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

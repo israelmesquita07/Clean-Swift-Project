@@ -12,9 +12,8 @@
 
 import UIKit
 
-class PostWorker
-{
-  func doSomeWork()
-  {
-  }
+class PostWorker{
+    func doSomeWork(){
+        
+    }
 }
