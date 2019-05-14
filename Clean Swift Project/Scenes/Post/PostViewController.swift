@@ -21,7 +21,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     var interactor: PostBusinessLogic?
     var router: (NSObjectProtocol & PostRoutingLogic & PostDataPassing)?
-    let postView = PostView()
+    let postView = CommonTableView()
     var arrForPost = [PostModel]()
     
     // MARK: Object lifecycle

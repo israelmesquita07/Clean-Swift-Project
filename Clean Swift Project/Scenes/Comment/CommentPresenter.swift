@@ -26,6 +26,6 @@ class CommentPresenter: CommentPresentationLogic
   func presentSomething(response: Comment.Load.Response)
   {
     let viewModel = Comment.Load.ViewModel(comment: response.comment)
-    viewController?.displaySomething(viewModel: viewModel)
+    viewController?.displayComments(viewModel: viewModel)
   }
 }

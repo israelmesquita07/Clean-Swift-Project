@@ -14,7 +14,9 @@ import UIKit
 
 class CommentWorker
 {
-  func doSomeWork()
-  {
-  }
+    func fetchData(postId: Int, completionHandler: @escaping(([CommentModel]) -> Void)){
+        NetworkManager.shared.getCommentsForPost(withPostId: "\(postId)") { (comments) in
+            completionHandler(comments)
+        }
+    }
 }

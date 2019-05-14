@@ -22,10 +22,10 @@ enum Comment
     {
     }
     struct Response{
-        let comment: [Comment]
+        let comment: [CommentModel]
     }
     struct ViewModel{
-        let comment: [Comment]
+        let comment: [CommentModel]
     }
   }
 }

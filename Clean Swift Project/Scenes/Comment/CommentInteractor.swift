@@ -14,7 +14,7 @@ import UIKit
 
 protocol CommentBusinessLogic
 {
-  func doSomething(request: Comment.Load.Request)
+  func doLoadComments(request: Comment.Load.Request)
 }
 
 protocol CommentDataStore{
@@ -29,12 +29,13 @@ class CommentInteractor: CommentBusinessLogic, CommentDataStore
   
   // MARK: Do something
   
-  func doSomething(request: Comment.Load.Request)
+  func doLoadComments(request: Comment.Load.Request)
   {
     worker = CommentWorker()
-    worker?.doSomeWork()
+    worker?.fetchData(postId: postId, completionHandler: { (comments) in
+        let response = Comment.Load.Response(comment: comments)
+        self.presenter?.presentSomething(response: response)
+    })
     
-//    let response = Comment.Load.Response(comment: <#[Comment]#>)
-//    presenter?.presentSomething(response: response)
   }
 }

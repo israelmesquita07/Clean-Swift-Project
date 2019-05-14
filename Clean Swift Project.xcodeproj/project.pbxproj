@@ -20,7 +20,7 @@
 		076D7979228AFC48003A85A3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7978228AFC48003A85A3 /* NetworkManager.swift */; };
 		076D797B228AFC88003A85A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D797A228AFC88003A85A3 /* Post.swift */; };
 		076D797D228AFCAC003A85A3 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D797C228AFCAC003A85A3 /* CommentModel.swift */; };
-		076D7981228AFFAA003A85A3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7980228AFFAA003A85A3 /* PostView.swift */; };
+		076D7981228AFFAA003A85A3 /* CommonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7980228AFFAA003A85A3 /* CommonTableView.swift */; };
 		076D7984228B011F003A85A3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7983228B011F003A85A3 /* UIView.swift */; };
 		076D7986228B02E6003A85A3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7985228B02E6003A85A3 /* PostCell.swift */; };
 		076D798E228B2499003A85A3 /* CommentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7988228B2499003A85A3 /* CommentInteractor.swift */; };
@@ -29,6 +29,7 @@
 		076D7991228B2499003A85A3 /* CommentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D798B228B2499003A85A3 /* CommentRouter.swift */; };
 		076D7992228B2499003A85A3 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D798C228B2499003A85A3 /* CommentViewController.swift */; };
 		076D7993228B2499003A85A3 /* CommentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D798D228B2499003A85A3 /* CommentWorker.swift */; };
+		076D7996228B63A7003A85A3 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D7995228B63A7003A85A3 /* CommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,7 @@
 		076D7978228AFC48003A85A3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		076D797A228AFC88003A85A3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		076D797C228AFCAC003A85A3 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
-		076D7980228AFFAA003A85A3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		076D7980228AFFAA003A85A3 /* CommonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableView.swift; sourceTree = "<group>"; };
 		076D7983228B011F003A85A3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		076D7985228B02E6003A85A3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		076D7988228B2499003A85A3 /* CommentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInteractor.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		076D798B228B2499003A85A3 /* CommentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRouter.swift; sourceTree = "<group>"; };
 		076D798C228B2499003A85A3 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		076D798D228B2499003A85A3 /* CommentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWorker.swift; sourceTree = "<group>"; };
+		076D7995228B63A7003A85A3 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +175,6 @@
 		076D797F228AFF9E003A85A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				076D7980228AFFAA003A85A3 /* PostView.swift */,
 				076D7985228B02E6003A85A3 /* PostCell.swift */,
 			);
 			path = View;
@@ -182,6 +183,7 @@
 		076D7982228B0105003A85A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				076D7980228AFFAA003A85A3 /* CommonTableView.swift */,
 				076D7983228B011F003A85A3 /* UIView.swift */,
 			);
 			path = Utils;
@@ -190,6 +192,7 @@
 		076D7987228B2481003A85A3 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				076D7994228B6395003A85A3 /* View */,
 				076D7988228B2499003A85A3 /* CommentInteractor.swift */,
 				076D7989228B2499003A85A3 /* CommentModels.swift */,
 				076D798A228B2499003A85A3 /* CommentPresenter.swift */,
@@ -198,6 +201,14 @@
 				076D798D228B2499003A85A3 /* CommentWorker.swift */,
 			);
 			path = Comment;
+			sourceTree = "<group>";
+		};
+		076D7994228B6395003A85A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				076D7995228B63A7003A85A3 /* CommentCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,10 +326,11 @@
 				076D7972228AF2A8003A85A3 /* PostModels.swift in Sources */,
 				076D797B228AFC88003A85A3 /* Post.swift in Sources */,
 				076D794A228AEF93003A85A3 /* AppDelegate.swift in Sources */,
+				076D7996228B63A7003A85A3 /* CommentCell.swift in Sources */,
 				076D7990228B2499003A85A3 /* CommentPresenter.swift in Sources */,
 				076D798F228B2499003A85A3 /* CommentModels.swift in Sources */,
 				076D7974228AF2A8003A85A3 /* PostRouter.swift in Sources */,
-				076D7981228AFFAA003A85A3 /* PostView.swift in Sources */,
+				076D7981228AFFAA003A85A3 /* CommonTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
