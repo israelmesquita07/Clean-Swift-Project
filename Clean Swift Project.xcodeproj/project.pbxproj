@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				076D797E228AFE52003A85A3 /* Models */,
-				076D797C228AFCAC003A85A3 /* Comment.swift */,
+				076D7978228AFC48003A85A3 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 		076D797E228AFE52003A85A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				076D7978228AFC48003A85A3 /* NetworkManager.swift */,
+				076D797C228AFCAC003A85A3 /* Comment.swift */,
 				076D797A228AFC88003A85A3 /* Post.swift */,
 			);
 			path = Models;
