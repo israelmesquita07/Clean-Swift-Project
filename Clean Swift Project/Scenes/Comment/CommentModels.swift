@@ -16,16 +16,16 @@ enum Comment
 {
   // MARK: Use cases
   
-  enum Something
+  enum Load
   {
     struct Request
     {
     }
-    struct Response
-    {
+    struct Response{
+        let comment: [Comment]
     }
-    struct ViewModel
-    {
+    struct ViewModel{
+        let comment: [Comment]
     }
   }
 }

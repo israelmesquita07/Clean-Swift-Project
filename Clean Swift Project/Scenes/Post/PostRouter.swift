@@ -13,12 +13,10 @@
 import UIKit
 
 @objc protocol PostRoutingLogic {
-    
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToComments()
 }
 
 protocol PostDataPassing {
-    
     var dataStore: PostDataStore? { get }
 }
 
@@ -28,33 +26,22 @@ class PostRouter: NSObject, PostRoutingLogic, PostDataPassing {
     var dataStore: PostDataStore?
     
     // MARK: Routing
-    
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: PostViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func routeToComments() {
+        let destinationVC = CommentViewController()
+        var destDataStore = destinationVC.router?.dataStore
+        passDataToComments(source: dataStore!, destination: &destDataStore!)
+        navigateToComments(source: viewController!, destination: destinationVC)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: PostDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToComments(source: PostDataStore, destination: inout CommentDataStore){
+        destination.postId = source.postId
+    }
+
+    // MARK: Navigation
+    
+    func navigateToComments(source: PostViewController, destination: CommentViewController){
+        source.show(destination, sender: nil)
+    }
 }

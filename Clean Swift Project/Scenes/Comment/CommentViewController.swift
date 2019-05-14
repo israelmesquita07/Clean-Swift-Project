@@ -14,7 +14,7 @@ import UIKit
 
 protocol CommentDisplayLogic: class
 {
-  func displaySomething(viewModel: Comment.Something.ViewModel)
+  func displaySomething(viewModel: Comment.Load.ViewModel)
 }
 
 class CommentViewController: UIViewController, CommentDisplayLogic
@@ -78,11 +78,11 @@ class CommentViewController: UIViewController, CommentDisplayLogic
   
   func doSomething()
   {
-    let request = Comment.Something.Request()
+    let request = Comment.Load.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: Comment.Something.ViewModel)
+  func displaySomething(viewModel: Comment.Load.ViewModel)
   {
     //nameTextField.text = viewModel.name
   }

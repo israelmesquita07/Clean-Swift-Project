@@ -26,4 +26,17 @@ enum Post {
             let posts: [PostModel]
         }
     }
+    
+    enum Comments
+    {
+        struct Request{
+            let post:PostModel
+        }
+        struct Response{
+//            let comment: [CommentModel]
+        }
+        struct ViewModel{
+//            let comment: [CommentModel]
+        }
+    }
 }

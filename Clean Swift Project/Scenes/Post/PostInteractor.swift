@@ -13,25 +13,33 @@
 import UIKit
 
 protocol PostBusinessLogic{
-    func loadData(request: Post.Load.Request)
+    func doLoadData(request: Post.Load.Request)
+    func doLoadComments(request: Post.Comments.Request)
 }
 
 protocol PostDataStore{
-    //var name: String { get set }
+    var postId: Int { get set }
 }
 
 class PostInteractor: PostBusinessLogic, PostDataStore{
     
     var presenter: PostPresentationLogic?
     var worker: PostWorker?
+    var postId: Int = 0
     
-    func loadData(request: Post.Load.Request)
-    {
+    func doLoadData(request: Post.Load.Request){
         worker = PostWorker()
         worker?.fetchData(completionHandler: { (posts) in
             let response = Post.Load.Response(posts: posts)
             self.presenter?.presentPosts(response: response)
         })
-        
     }
+    
+    func doLoadComments(request: Post.Comments.Request) {
+        let post = request.post
+        postId = post.id
+        let response = Post.Comments.Response()
+        presenter?.presentComments(response: response)
+    }
+    
 }

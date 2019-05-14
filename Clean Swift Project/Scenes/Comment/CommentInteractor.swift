@@ -14,28 +14,27 @@ import UIKit
 
 protocol CommentBusinessLogic
 {
-  func doSomething(request: Comment.Something.Request)
+  func doSomething(request: Comment.Load.Request)
 }
 
-protocol CommentDataStore
-{
-  //var name: String { get set }
+protocol CommentDataStore{
+  var postId: Int { get set }
 }
 
 class CommentInteractor: CommentBusinessLogic, CommentDataStore
 {
   var presenter: CommentPresentationLogic?
   var worker: CommentWorker?
-  //var name: String = ""
+  var postId: Int = 0
   
   // MARK: Do something
   
-  func doSomething(request: Comment.Something.Request)
+  func doSomething(request: Comment.Load.Request)
   {
     worker = CommentWorker()
     worker?.doSomeWork()
     
-    let response = Comment.Something.Response()
-    presenter?.presentSomething(response: response)
+//    let response = Comment.Load.Response(comment: <#[Comment]#>)
+//    presenter?.presentSomething(response: response)
   }
 }

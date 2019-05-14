@@ -14,6 +14,7 @@ import UIKit
 
 protocol PostPresentationLogic {
     func presentPosts(response: Post.Load.Response)
+    func presentComments(response: Post.Comments.Response)
 }
 
 class PostPresenter: PostPresentationLogic {
@@ -22,5 +23,10 @@ class PostPresenter: PostPresentationLogic {
     func presentPosts(response: Post.Load.Response) {
         let viewModel = Post.Load.ViewModel(posts: response.posts)
         viewController?.displayPosts(viewModel: viewModel)
+    }
+    
+    func presentComments(response: Post.Comments.Response) {
+        let viewModel = Post.Comments.ViewModel()
+        viewController?.displayComments(viewModel: viewModel)
     }
 }

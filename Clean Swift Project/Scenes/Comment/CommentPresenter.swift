@@ -14,7 +14,7 @@ import UIKit
 
 protocol CommentPresentationLogic
 {
-  func presentSomething(response: Comment.Something.Response)
+  func presentSomething(response: Comment.Load.Response)
 }
 
 class CommentPresenter: CommentPresentationLogic
@@ -23,9 +23,9 @@ class CommentPresenter: CommentPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Comment.Something.Response)
+  func presentSomething(response: Comment.Load.Response)
   {
-    let viewModel = Comment.Something.ViewModel()
+    let viewModel = Comment.Load.ViewModel(comment: response.comment)
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

@@ -14,6 +14,7 @@ import UIKit
 
 protocol PostDisplayLogic: class {
     func displayPosts(viewModel: Post.Load.ViewModel)
+    func displayComments(viewModel: Post.Comments.ViewModel)
 }
 
 class PostViewController: UIViewController, PostDisplayLogic {
@@ -80,17 +81,23 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     func loadPosts(){
         let request = Post.Load.Request()
-        interactor?.loadData(request: request)
+        interactor?.doLoadData(request: request)
     }
     
     func displayPosts(viewModel: Post.Load.ViewModel){
         arrForPost = viewModel.posts
         postView.tableView.reloadData()
     }
+    
+    func displayComments(viewModel: Post.Comments.ViewModel) {
+        
+    }
+    
 }
 
 extension PostViewController: UITableViewDataSource, UITableViewDelegate {
     
+    //dataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -112,5 +119,13 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate {
         
         return UITableViewCell()
     }
+    
+    //delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = arrForPost[indexPath.row]
+        let request = Post.Comments.Request(post: post)
+        interactor?.doLoadComments(request: request)
+    }
+    
     
 }
