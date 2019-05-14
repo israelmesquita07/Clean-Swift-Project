@@ -20,6 +20,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     var interactor: PostBusinessLogic?
     var router: (NSObjectProtocol & PostRoutingLogic & PostDataPassing)?
+    let postView = PostView()
     
     // MARK: Object lifecycle
     
@@ -61,9 +62,14 @@ class PostViewController: UIViewController, PostDisplayLogic {
     
     // MARK: View lifecycle
     
+    override func loadView() {
+        view = postView
+    }
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         doSomething()
+        self.title = "Posts"
     }
     
     // MARK: Do something
