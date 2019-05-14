@@ -56,13 +56,12 @@ class PostCell: UITableViewCell {
         NSLayoutConstraint.activate([
             lblTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ViewTraits.margins),
             lblTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ViewTraits.margins),
-            lblTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -ViewTraits.margins),
-            lblTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -ViewTraits.margins)
+            lblTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -ViewTraits.margins)
         ])
         
         NSLayoutConstraint.activate([
             lblDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ViewTraits.margins),
-            lblDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ViewTraits.margins),
+            lblDescription.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: ViewTraits.margins),
             lblDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -ViewTraits.margins),
             lblDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -ViewTraits.margins)
         ])

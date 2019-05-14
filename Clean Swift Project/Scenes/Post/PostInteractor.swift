@@ -24,9 +24,6 @@ class PostInteractor: PostBusinessLogic, PostDataStore{
     
     var presenter: PostPresentationLogic?
     var worker: PostWorker?
-    //var name: String = ""
-    
-    // MARK: Do something
     
     func loadData(request: Post.Load.Request)
     {

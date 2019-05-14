@@ -19,8 +19,6 @@ protocol PostPresentationLogic {
 class PostPresenter: PostPresentationLogic {
     weak var viewController: PostDisplayLogic?
     
-    // MARK: Do something
-    
     func presentPosts(response: Post.Load.Response) {
         let viewModel = Post.Load.ViewModel(posts: response.posts)
         viewController?.displayPosts(viewModel: viewModel)

@@ -92,7 +92,7 @@ class PostViewController: UIViewController, PostDisplayLogic {
 extension PostViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,9 +109,6 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         }
-        
-        
-        
         
         return UITableViewCell()
     }
